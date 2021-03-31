@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PetFoodFilter</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <% if logged_in? %>
+  <div>
+    <ul>
+      <li><%= link_to "Home", users_path %></li>
+      <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+    </ul>
+  </div>
+  <% else %>
+  <div>
+    <ul>
+      <li><%= link_to "Login", login_path %></li>
+      <li><%= link_to "Signup", new_user_path %></li>
+      <li><%= button_to "Sign up with Google", '/auth/google_oauth2', method: :post %></li>
+    </ul>
+  </div>
+  <% end %>
+    <% if flash[:error] %>
+    <% flash[:error].each do |error| %>    
+     <div style="background-color:red;">       
+      <%= error %>      
+       </div>    
+       <% end %>
+       <% end %>
+<body>
+  <%= yield %>
+</body>
+</html>

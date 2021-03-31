@@ -1,0 +1,9 @@
+<h1>Add a Pet Food</h1>
+
+<%= form_for @pet_food do |f| %>
+    <% f.label :name %>
+    <br>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.submit %>
+<% end %>

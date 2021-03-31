@@ -1,0 +1,9 @@
+
+<h1>Select the Pet Food</h1>
+<ul>
+<% @pet_food.each do |pet| %>
+    
+        <li><%= link_to pet.name, pet_food_path(pet.id) %></li> 
+    
+<% end %>
+</ul>
