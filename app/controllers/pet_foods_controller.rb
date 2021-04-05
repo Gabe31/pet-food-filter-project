@@ -1,6 +1,7 @@
 class PetFoodsController < ApplicationController
     def index
-        @pet_food = current_user.pet_foods
+        #binding.irb
+        @pet_food = PetFood.all
     end
 
     def new
@@ -10,6 +11,7 @@ class PetFoodsController < ApplicationController
     def create 
         user = current_user
         @pet_food = user.pet_foods.build(pet_params)
+        #binding.irb
         if @pet_food.save
         redirect_to pet_foods_path
         else
