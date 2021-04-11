@@ -1,14 +1,15 @@
 <h1>Add a Review!</h1>
 
-<%= form_for(@review, @pet_food) do |f| %>
+<%= form_for(@review) do |f| %>
     <div>
         <%= f.label :title %>
-        <%= f.text_field :name, :placeholder => 'Review Title' %>
+        <%= f.text_field :title, :placeholder => 'Review Title' %>
         <%= f.hidden_field :pet_food_id, :value => @pet_food.id %>
     </div>
-    <div>
+    <div><br>
+    <%= f.label :content %>
         <%= f.text_field :content, :placeholder => 'your review' %>
-    </div>
-
+    </div><br>
+    <%= f.submit %>
 <% end %>
 

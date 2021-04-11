@@ -4,5 +4,5 @@
     <%= @pet_food.name %>
     <%= @pet_food.description %>
 
-    <%= link_to "Review this Pet Food", new_pet_food_review_path %>
+    <%= link_to "Review this Pet Food", new_pet_food_review_path(@pet_food) %>
     

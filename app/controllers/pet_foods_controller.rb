@@ -8,12 +8,14 @@ class PetFoodsController < ApplicationController
         @pet_food = PetFood.new
     end
 
+    #fix create method
+
     def create 
         user = current_user
         @pet_food = user.pet_foods.build(pet_params)
         #binding.irb
         if @pet_food.save
-        redirect_to pet_foods_path
+        redirect_to pet_foods_path(@pet_food)
         else
             render :new 
       end 

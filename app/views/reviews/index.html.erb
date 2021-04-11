@@ -2,8 +2,7 @@
 
 <ul style="list-style-type:none;">
 <% @reviews.each do |e| %>
-    <li> <%= e.title %> - <%= e.content %> </li>
+    <li> <h1><%= e.pet_food.name %></h1><h2><%= e.title %></h2> <%= e.content %> </li>
     <%end%>
 </ul>
 
-<%= link_to "Create Review", new_review_path(@pet_food) %>

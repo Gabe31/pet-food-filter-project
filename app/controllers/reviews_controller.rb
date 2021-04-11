@@ -9,14 +9,14 @@ class ReviewsController < ApplicationController
         if @pet_food = PetFood.find_by(id: params[:pet_food_id])
             @review = @pet_food.reviews.build
         else
-            redirect_to pet_foods_path
+            @review = Review.new
         end 
        end
 
     def create 
-        @pet_food = PetFood.find_by(id: params[:pet_food_id])
-        @review = Review.new(review_params)
-        @review.pet_food_id =  params[:pet_food_id]
+        #@pet_food = PetFood.find_by(id: params[:pet_food_id])
+        @review = current_user.reviews.build(review_params)
+        #@review.pet_food_id =  params[:pet_food_id]
         if @review.save
             redirect_to review_path(@review)
         else
@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:title, :content, user_id, :pet_food_id)
+        params.require(:review).permit(:title, :content, :user_id, :pet_food_id)
     end
 
 end
