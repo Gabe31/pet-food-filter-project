@@ -5,4 +5,9 @@
     <%= @pet_food.description %>
 
     <%= link_to "Review this Pet Food", new_pet_food_review_path(@pet_food) %>
+
     
+    <% if current_user %>
+    <h4><%= link_to "Edit Pet Food", edit_pet_food_path(@pet_food)%></h4>
+    
+<%end%> 

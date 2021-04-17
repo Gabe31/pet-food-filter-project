@@ -1,4 +1,15 @@
 class SessionsController < ApplicationController
+    def omniauth
+        @user = User.find_with_omniauth(auth)
+        if @user
+            session[:user_id] = @user.id
+            redirect_to user_path
+        else
+            flash[:errors] = "Please log in"
+            redirect_to login_path
+        end
+      end
+    
     def welcome
     end
 
@@ -43,5 +54,6 @@ class SessionsController < ApplicationController
     def user_params
         params.require(:user).permit(:username, :password)
     end
+
 
 end
