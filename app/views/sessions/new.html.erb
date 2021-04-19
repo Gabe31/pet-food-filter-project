@@ -11,3 +11,7 @@
     <%= f.password_field :password %>
     <%= f.submit "Log In" %>
 <% end %>
+
+<%= form_tag("/auth/github") do %>
+    <%= submit_tag "Login with Github" %>
+<% end %>

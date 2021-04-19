@@ -60,3 +60,4 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'mimemagic', '0.4.3'
+gem 'omniauth-github'

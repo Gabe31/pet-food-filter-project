@@ -8,11 +8,15 @@ class User < ApplicationRecord
     has_secure_password
 
     def self.find_with_omniauth(auth)
-        where(email: auth.info.email).first_or_initialize do |u|
-            u.username = auth[:info][:name]
+        self.find_or_create_by(uid: auth[:uid]) do |u|
+            if auth[:info][:nickname]
+                u.username = auth[:info][:nickname]
+            else
+                u.username = auth[:info][:name]
+            end
             u.email = auth[:info][:email]
-            u.password = SecureRandom.hex(10)
+            u.password = SecureRandom.hex(16)
         end
     end
-
 end
+
