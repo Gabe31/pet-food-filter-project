@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/auth/:provider/callback", to: "sessions#omniauth"
+  #http://localhost:3000/auth/google_oauth2/callback
   resources :reviews
   resources :pet_foods do 
     resources :reviews

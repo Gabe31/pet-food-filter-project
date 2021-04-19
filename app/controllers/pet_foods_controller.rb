@@ -1,5 +1,5 @@
 class PetFoodsController < ApplicationController
-
+    
     
     def index
         @pet_food = PetFood.alpha
@@ -28,8 +28,8 @@ class PetFoodsController < ApplicationController
     end
     
     def update 
-        redirect_to pet_foods_path if !@pet_food || @pet_food.user != current_user
-       if @pet_food.update
+        @pet_food = PetFood.find_by_id(params[:id])
+       if @pet_food.update(pet_params)
          redirect_to pet_food_path(@pet_food)
        else
          render :edit

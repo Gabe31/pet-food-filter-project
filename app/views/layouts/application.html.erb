@@ -26,13 +26,7 @@
     </ul>
   </div>
   <% end %>
-    <% if flash[:error] %>
-    <% flash[:error].each do |error| %>    
-     <div style="background-color:red;">       
-      <%= error %>      
-       </div>    
-       <% end %>
-       <% end %>
+
 <body>
   <%= yield %>
 </body>
