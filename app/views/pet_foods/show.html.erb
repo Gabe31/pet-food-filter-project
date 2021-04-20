@@ -6,7 +6,8 @@
 
     <%= link_to "Review this Pet Food", new_pet_food_review_path(@pet_food) %>
 
-    
+    <%=link_to "Reviews for this pet food", pet_food_reviews_path(@pet_food)%> 
+    <br>
     <% if current_user %>
     <h4><%= link_to "Edit Pet Food", edit_pet_food_path(@pet_food)%></h4>
     

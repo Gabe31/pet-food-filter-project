@@ -2,7 +2,11 @@ class ReviewsController < ApplicationController
 
 
     def index
+        if @pet_food = PetFood.find_by(id: params[:pet_food_id])
+            @reviews = @pet_food.reviews
+        else
         @reviews = Review.all
+     end
     end
 
     def new

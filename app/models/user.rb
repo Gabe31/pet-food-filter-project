@@ -14,7 +14,6 @@ class User < ApplicationRecord
             else
                 u.username = auth[:info][:name]
             end
-            u.email = auth[:info][:email]
             u.password = SecureRandom.hex(16)
         end
     end
