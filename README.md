@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Pet Food Filter is designed to allow users to generate the pet food brand they're familiar with and create a review for it. Users can also find reviews created by other users and see their reviews for that product.
 
-Things you may want to cover:
+Pet Food Filter uses Ruby 2.6.1, rails, sqlite3, bcrypt, omniauth, and a number of other gems. The app allows users to create a login, login with their existing name, or use omniauth to access their google login. 
 
-* Ruby version
+The database has 3 tables: User, Pet Foods, and Reviews. Reviews is a join table that has a foreign key for both Pet Foods and Users. 
 
-* System dependencies
+You will also notice the nested route in the config folder under routes:
+  resources :pet_foods do 
+    resources :reviews
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
